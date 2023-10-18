@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { RxjsService } from 'src/app/services/rxjs.service';
 
 @Component({
@@ -7,15 +8,16 @@ import { RxjsService } from 'src/app/services/rxjs.service';
   styleUrls: ['./secundary.component.scss'],
 })
 export class SecundaryComponent implements OnInit {
+  subject: string = '';
+  behaviorSubject$: Observable<boolean>;
 
-  subject$: string = '';
-
-  constructor(private service: RxjsService) {}
+  constructor(private service: RxjsService) {
+    this.behaviorSubject$ = this.service.isLoggedIn$;
+  }
 
   ngOnInit(): void {
     this.service.dataSubject.subscribe((subject) => {
-      this.subject$ = subject;
+      this.subject = subject;
     });
   }
-
 }

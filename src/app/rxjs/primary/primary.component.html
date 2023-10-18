@@ -1,9 +1,19 @@
-<h1>primary works!</h1>
-
+<h1>Subjects</h1>
+<h3>primary works!</h3>
 <input
   type="text"
   placeholder="text"
   [(ngModel)]="subject"
-  (keypress)="('Enter')"
 />
 <button (click)="onClick()">Submit</button>
+
+<hr />
+
+<h1>Behavior Subjects</h1>
+<h3>primary works!</h3>
+
+<p>Behavior Subject: {{ behaviorSubject$ | async }}</p>
+<button (click)="clear()">Logout</button>
+<button (click)="updateBoolean()">updateBoolean</button>
+
+<hr />
